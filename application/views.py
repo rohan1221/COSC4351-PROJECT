@@ -13,10 +13,29 @@ user = "root"
 password = "coogshouse"
 database = "group_8"
 
+if __name__ == '_@views__':
+    views.run()
+
+@views.route('/')
+def index():
+    return render_template('homePage.html')
+
+@views.route('/')
+def home():
+    if current_user.is_authenticated:
+        return render_template('homePage.html', name=current_user.name.capitalize(),
+                               type=current_user.type.capitalize())
+    return render_template("homePage.html")
+
+@views.route('/employee', methods=["GET", "POST"])
+@login_required
+def loggedIn():
+    return render_template("homePage.html", name=current_user.name.capitalize(),
+                           type=current_user.type.capitalize())
+
 @views.route('/NewReservation', methods=["GET","POST"])
 def newReservation():
     if request.method == "POST":
-        send_fname = request.form.get("fname")
         fname = request.form.get("fname")
         lname = request.form.get("lname")
         email = request.form.get("email")
@@ -131,7 +150,9 @@ def newCustomer():
             print(e)
     return render_template("NewCustomerForm.html")
 
-
+@views.route('/Submitted', methods=["GET", "POST"])
+def confirmationPage():
+    return render_template("ConfirmationPage.html")
 
 
 
