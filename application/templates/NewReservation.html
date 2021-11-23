@@ -180,51 +180,14 @@
             {% endwith %}
 		<form action="{{ url_for("views.packDelivery")}}" method="post">
 			<div class="info">
-				<input class="fname" type="text" name="s_fname" placeholder="Sender's First name" maxlength = "15" required/>
-                <input class="fname" type="text" name="s_lname" placeholder="Sender's Last name" maxlength = "15" required/>
-                <input class="fname" type="text" name="r_fname" placeholder="Receiver's First name" maxlength = "15" required/>
-                <input class="fname" type="text" name="r_lname" placeholder="Receiver's Last name" maxlength = "15" required/>
-                <input type="text" name="s_email" placeholder="Sender's Email" maxlength = "30" required/>
-                <input type="text" pattern="\d*" name="s_phoneNum" placeholder="Sender's Phone number" maxlength = "10" minlength = "10" required/>
-                <input type="text" name="r_email" placeholder="Receiver's Email" maxlength = "30" required/>
-                <input type="text" pattern="\d*" name="r_phoneNum" placeholder="Receiver's Phone number" maxlength = "10" minlength = "10" required/>
-                <input type="text" name="destAdd" placeholder="Destination Address" maxlength = "30" required/>
-                <input type="text" name="custAdd" placeholder="Return Address" maxlength = "30" required/>
-                <input type="text" pattern="\d*" name="weight" placeholder="Weight" maxlength = "3" required/>
-
-                <div class="metod">
-                    <div>
-                        <input type="text" pattern="\d*" name="height" placeholder="Height" maxlength = "3" required/>
-                    </div>
-                    <div>
-                        <input type="text" pattern="\d*" name="length" placeholder="Length" maxlength = "3" required/>
-                    </div>
-                    <div>
-                        <input type="text" pattern="\d*" name="width" placeholder="Width" maxlength = "3" required/>
-                    </div>
-                </div>
-                <input type="text" pattern="\d*" name="employeeID" placeholder="Employee ID" maxlength = "10" required/>
+				<input class="fname" type="text" name="fname" placeholder="First name" maxlength = "15" required/>
+                <input class="fname" type="text" name="lname" placeholder="Last name" maxlength = "15" required/>
+                <input type="text" name="email" placeholder="Email" maxlength = "30" required/>
+                <input type="text" pattern="\d*" name="phoneNum" placeholder="Phone number" maxlength = "10" minlength = "10" required/>
+                <input type="text" name="address" placeholder="Address" maxlength = "30" required/>
+                <input type="text" pattern="\d*" name="party_size" placeholder="Party Size" maxlength = "1" required/>
+                <input type="text" pattern="\d*" name="booking_Date" placeholder="Booking Date" maxlength = "10" required/>
             </div>
-        <h3>Delivery Method & Options</h3>
-        <div class="metod">
-
-            <div>
-                <input type="radio" value="1" id="radioOne" name="delivery" checked/>
-                <label for="radioOne" class="radio">Standard</label>
-            </div>
-            <div>
-                <input type="radio" value="2" id="radioTwo" name="delivery" />
-                <label for="radioTwo" class="radio">Priority</label>
-            </div>
-            <div>
-                <label for="checkbox" class="checkbox">Fragile</label>
-                <input type="checkbox" value="20" id="checkbox" name="etc" />
-            </div>
-            <div>
-                <label for="checkbox" class="checkbox">Insurance</label>
-                <input type="checkbox" value="30" id="checkbox" name="etc" />
-            </div>
-        </div>
         <button href="/" class="button">Submit</button>
         </form>
     </div>

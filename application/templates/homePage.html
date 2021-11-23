@@ -43,7 +43,9 @@
         Reservations <i class="fa fa-caret-down"></i>
       </a>
       <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-        <a href="/NewPackage" class="w3-bar-item w3-button">New Reservation</a>
+
+        <a href="/NewReservation" class="w3-bar-item w3-button">New Reservation</a>
+
         <a href="/packageTracker" class="w3-bar-item w3-button">Track Reservation</a>
         <a href="{{ url_for('views.packageUpdateForm') }}" class="w3-bar-item w3-button">Manage Reservation</a>
         <a href="/packageSearch" class="w3-bar-item w3-button">Search Reservation</a>
@@ -62,6 +64,7 @@
       <a href="/emp_login" class="w3-bar-item w3-button">User Login</a>
       <a href="/packageTracker" class="w3-bar-item w3-button">Track Reservation</a>
       {% endif %}
+      </div>
   </nav>
 
   <!-- Top menu on small screens -->
@@ -106,7 +109,7 @@
       <div class="w3-display-topleft w3-text-white" style="padding:24px 48px">
         <h1 class="w3-jumbo w3-hide-small">Cougar Grub</h1>
         {% if not current_user.is_authenticated %}
-        <p><a href="/NewPackage" class="w3-button w3-black w3-padding-large w3-large">New Reservation</a></p>
+        <p><a href="/NewReservation" class="w3-button w3-black w3-padding-large w3-large">New Reservation</a></p>
         <br>
         <p><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"
             class="w3-button w3-black w3-padding-large w3-large">FREE LUNCH</a></p>
