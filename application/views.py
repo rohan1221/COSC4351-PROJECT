@@ -86,6 +86,7 @@ def newReservation():
             print(e)
 
         return render_template("ConfirmationPage.html", info=resInfo)
+    return render_template("NewReservation.html")
 
 @views.route('/NewCustomerForm', methods=["GET", "POST"])
 def newCustomer():

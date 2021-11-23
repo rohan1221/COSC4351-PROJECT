@@ -17,9 +17,9 @@ def login_required_test(role="ANY"):
         def decorated_view(*args, **kwargs):
             if not current_user.is_authenticated:
                return render_template('NoPermission.html')
-            type = current_user.type
-            if ( (type != role) and (role != "ANY")):
-                return render_template('NoPermission.html') 
+            # type = current_user.type
+            # if ( (type != role) and (role != "ANY")):
+            #     return render_template('NoPermission.html')
             return fn(*args, **kwargs)
         return decorated_view
     return wrapper
