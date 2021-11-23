@@ -146,7 +146,7 @@ def newCustomer():
                             "phoneNum": phoneNum,
                             "cust_address": cust_address
                         }
-                        return render_template("CustomerConfirmation.html")
+                        return render_template("CustomerConfirmation.html", info=custInfo)
         except Error as e:
             print(e)
     return render_template("NewCustomerForm.html")
