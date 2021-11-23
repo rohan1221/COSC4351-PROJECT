@@ -27,7 +27,7 @@ CREATE TABLE `Bookings` (
   `cust_ID` int(11) unsigned zerofill NOT NULL,
   `date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `date_updated` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `Bookingscol` varchar(45) DEFAULT NULL,
+  `num_guest` int DEFAULT NULL,
   PRIMARY KEY (`booking_ID`),
   UNIQUE KEY `booking_ID_UNIQUE` (`booking_ID`),
   KEY `fk_Bookings_Customer_idx` (`cust_ID`),
@@ -87,7 +87,6 @@ CREATE TABLE `Tables` (
 
 LOCK TABLES `Tables` WRITE;
 /*!40000 ALTER TABLE `Tables` DISABLE KEYS */;
-INSERT INTO `Tables` VALUES (1,2,'empty');
 /*!40000 ALTER TABLE `Tables` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -105,7 +104,6 @@ CREATE TABLE `Users` (
   `email` varchar(45) DEFAULT NULL,
   `phone_no` int DEFAULT NULL,
   `address` varchar(45) DEFAULT NULL,
-  `cust_guest` int DEFAULT NULL,
   PRIMARY KEY (`user_ID`),
   UNIQUE KEY `cust_ID_UNIQUE` (`user_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -137,4 +135,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-21 13:41:14
+-- Dump completed on 2021-11-22 18:14:55
