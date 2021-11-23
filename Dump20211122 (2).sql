@@ -24,15 +24,14 @@ DROP TABLE IF EXISTS `Bookings`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `Bookings` (
   `booking_ID` int(11) unsigned zerofill NOT NULL,
-  `cust_ID` int(11) unsigned zerofill NOT NULL,
   `date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `date_updated` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `num_guest` int DEFAULT NULL,
   `booking_date` datetime NOT NULL,
+  `firstName` varchar(45) DEFAULT NULL,
+  `lastName` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`booking_ID`),
-  UNIQUE KEY `booking_ID_UNIQUE` (`booking_ID`),
-  KEY `fk_Bookings_Customer_idx` (`cust_ID`),
-  CONSTRAINT `fk_Bookings_Customer` FOREIGN KEY (`cust_ID`) REFERENCES `Users` (`user_ID`) ON DELETE CASCADE ON UPDATE CASCADE
+  UNIQUE KEY `booking_ID_UNIQUE` (`booking_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -136,4 +135,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-22 19:30:01
+-- Dump completed on 2021-11-22 21:53:29
