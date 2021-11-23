@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>New Employee</title>
+    <title>New Customer</title>
     <style>
         html, body {
             height: 100%;
@@ -169,7 +169,7 @@
             </a>
         </div>
 
-        <form action={{url_for("views.NewCustomerForm")}} method="post">
+        <form action={{url_for("views.newCustomer")}} method="post">
             <h3>Customer Information</h3>
             <div class="info">
                 <input class="fname" type="text" name="fname" placeholder="First name" maxlength="15" required />
