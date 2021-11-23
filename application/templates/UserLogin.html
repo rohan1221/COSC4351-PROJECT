@@ -62,7 +62,7 @@
         </div>
         {% endif %}
         {% endwith %}
-        <form action="/emp_login" method="post">
+        <form action="/login" method="post">
             <label>Username: </label>
             <input type="text" placeholder="Enter Username" name="username" required>
             <label>Password: </label>
@@ -73,8 +73,8 @@
                 <a class="active " href="{{ url_for('views.index') }}">
                     Home
                 </a>
-                <a href="/packageTracker" class="w3-bar-item w3-button">Track Package</a>
             </div>
         </form>
+    </div>
 </body>
 </html>

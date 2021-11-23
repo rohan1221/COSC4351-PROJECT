@@ -7,14 +7,14 @@ from . import db
 auth = Blueprint('auth', __name__)
 
 
-@auth.route('/emp_login')
-def emp_login():
-    return render_template("EmployeeLogin.html")
+@auth.route('/login')
+def login():
+    return render_template("UserLogin.html")
 
 
 @auth.route('/signup')
 def signup():
-    return render_template('signup.html')
+    return render_template('NewCustomerForm.html')
 
 
 @auth.route('/logout')
@@ -43,10 +43,10 @@ def signup_post():
     db.session.add(new_user)
     db.session.commit()
 
-    return redirect(url_for('auth.emp_login'))
+    return redirect(url_for('auth.login'))
 
 
-@auth.route('/emp_login', methods=['POST'])
+@auth.route('/login', methods=['POST'])
 def login_post():
     email = request.form.get('username')
     password = request.form.get('password')
@@ -58,7 +58,7 @@ def login_post():
     # take the user-supplied password, hash it, and compare it to the hashed password in the database
     if not user or not check_password_hash(user.password, password):
         flash('Please check your login details and try again.')
-        return redirect(url_for('auth.emp_login')) # if the user doesn't exist or password is wrong, reload the page
+        return redirect(url_for('auth.login')) # if the user doesn't exist or password is wrong, reload the page
 
         # if the above check passes, then we know the user has the right credentials
        # login_user(user, remember=remember)

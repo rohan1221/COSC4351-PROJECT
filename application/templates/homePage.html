@@ -46,23 +46,19 @@
 
         <a href="/NewReservation" class="w3-bar-item w3-button">New Reservation</a>
 
-        <a href="/packageTracker" class="w3-bar-item w3-button">Track Reservation</a>
-        <a href="{{ url_for('views.packageUpdateForm') }}" class="w3-bar-item w3-button">Manage Reservation</a>
+<!--        <a href="/packageTracker" class="w3-bar-item w3-button">Track Reservation</a>-->
+<!--        <a href="/ManageReservation" class="w3-bar-item w3-button">Manage Reservation</a>-->
         <a href="/packageSearch" class="w3-bar-item w3-button">Search Reservation</a>
       </div>
 <!--      <a href="/customerSearch" class="w3-bar-item w3-button">Search Customer</a>-->
 <!--      <a href="/editCustomerSearch" class="w3-bar-item w3-button">Edit Customer</a>-->
       <a href="/EditEmployee" class="w3-bar-item w3-button">Edit Account</a>
 <!--      <a href="/report" class="w3-bar-item w3-button">Reports</a>-->
-      
-      {% endif %}
-      {% if current_user.type == 'supervisor' %} <!-- Supervisors Only -->
-<!--      <a href="/NewEmployeeForm" class="w3-bar-item w3-button">New User</a>-->
-<!--      <a href="/employeeSearch" class="w3-bar-item w3-button">Search Employee</a>-->
+
       {% endif %}
       {% if not current_user.is_authenticated %} <!-- Not Logged In -->
-      <a href="/emp_login" class="w3-bar-item w3-button">User Login</a>
-      <a href="/packageTracker" class="w3-bar-item w3-button">Track Reservation</a>
+      <a href="/login" class="w3-bar-item w3-button">User Login</a>
+<!--      <a href="/packageTracker" class="w3-bar-item w3-button">Track Reservation</a>-->
       {% endif %}
       </div>
   </nav>
@@ -95,7 +91,7 @@
     <!-- Top header -->
     <header class="w3-container w3-xlarge">
       {% if current_user.is_authenticated %}
-      <p class="w3-left">UH Restaurant - Hello, {{ name }}  ({{ type }})</p>
+      <p class="w3-left">UH Restaurant - Hello</p>
       {% else %}
       <p class="w3-left">Welcome to UH Restaurant!</p>
       {% endif %}

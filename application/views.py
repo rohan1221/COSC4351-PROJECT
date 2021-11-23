@@ -68,11 +68,9 @@ def newReservation():
 
                     getResID = "SELECT Bookings.booking_ID FROM Bookings "\
                                "WHERE booking_date = '"+ date +"' AND num_guest= '"+ partySz +"' AND lastName = "+ lname + ";"
-                    cursor.execute(getResID)
-                    print("Getting booking ID")
+
                     resIDresults = cursor.fetchone()
-                    print(resIDresults)
-                    print("successfully inserted data into DB")
+                    cursor.execute(getResID)
 
                     resInfo = {
                         "booking_ID": resIDresults[0],
@@ -82,6 +80,10 @@ def newReservation():
                         "partySz": partySz,
                         "date": date
                     }
+                    print("Getting booking ID")
+                    print(resIDresults)
+                    print("successfully inserted data into DB")
+
         except Error as e:
             print(e)
 
@@ -154,6 +156,10 @@ def newCustomer():
 @views.route('/Submitted', methods=["GET", "POST"])
 def confirmationPage():
     return render_template("ConfirmationPage.html")
+
+@views.route('/ManageReservation', methods=["GET","POST"])
+def manageReservation():
+    return render_template("")
 
 
 
