@@ -19,10 +19,9 @@
     <body>
 
         <div class="content">
-            <h1 class="display-3">Your package has been shipped! </h1>
+            <h1 class="display-3">Your reservation has been booked! </h1>
             <p class="lead">
-                Your tracking number is: {{ info.pkgID }} <br />
-                Price: {{ info.price }}<br />
+                Your booking ID is: {{ info.booking_ID }} <br />
                 <strong>Please check your email</strong> for updates on your package.
             </p>
             <hr>
@@ -31,19 +30,13 @@
             </p>
             <p class="lead">
                 <h3>Order Details:</h3>
-                Sender Name: {{ info.send_fname }}<br />
-                Sender Email: {{ info.send_email }}<br />
-                Sender Address: {{ info.return_add }}<br />
-                Sender Phone: {{ info.send_phoneNum }}<br />
-                Receiver Name: {{ info.rec_fname }}<br />
-                Receiver Email: {{ info.rec_email }}<br />
-                Receiver Address: {{ info.dest_add }}<br />
-                Receiver Phone: {{ info.rec_phoneNum }}<br />
-                Package Weight: {{ info.weight }}<br />
-                Package Width: {{ info.width }}<br /> 
-                Package Height: {{ info.height }}<br /> 
-                Package Length: {{ info.length }}<br />
-                Employee ID: {{ info.empID }}
+                Name: {{ info.fname }}<br />
+                Email: {{ info.email }}<br />
+                Address: {{ info.address }}<br />
+                Phone: {{ info.phNum }}<br />
+                Party Size: {{ info.partySz }}<br />
+                Date: {{ info.date }}<br />
+
             </p>
         </div>
 

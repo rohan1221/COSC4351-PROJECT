@@ -17,14 +17,56 @@ database = "group_8"
 def newReservation():
     if request.method == "POST":
         send_fname = request.form.get("fname")
+        fname = request.form.get("fname")
+        lname = request.form.get("lname")
+        email = request.form.get("email")
+        phNum = request.form.get("phoneNum")
+        address = request.form.get("address")
+        partySz = request.form.get("party_size")
+        date = request.form.get("booking_date")
 
+        try:
+            with connect(
+                    host=host,
+                    user=user,
+                    password=password,
+                    database=database
+            ) as connection:
+                print(connection)
 
+                insert_customer = "INSERT INTO Users (first_name, last_name, email, phone_no, address)" \
+                                 "VALUES" \
+                                 "('"+ fname + "','"+ lname +"','"+ email +"','"+ phNum +"','"+ address +"')"
 
+                insert_bookings = "INSERT INTO Bookings(firstName, lastName, booking_date, num_guest)" \
+                                  "VALUES" \
+                                  "('"+ fname +"','"+ lname +"', '"+ date +"', '"+ partySz +"')"
 
+                with connection.cursor(buffered=True) as cursor:
+                    cursor.execute(insert_customer)
+                    cursor.execute(insert_bookings)
+                    connection.commit()
 
+                    getResID = "SELECT Bookings.booking_ID FROM Bookings "\
+                               "WHERE booking_date = '"+ date +"' AND num_guest= '"+ partySz +"' AND lastName = "+ lname + ";"
+                    cursor.execute(getResID)
+                    print("Getting booking ID")
+                    resIDresults = cursor.fetchone()
+                    print(resIDresults)
+                    print("successfully inserted data into DB")
 
+                    resInfo = {
+                        "booking_ID": resIDresults[0],
+                        "fname": fname,
+                        "email": email,
+                        "phNum": phNum,
+                        "partySz": partySz,
+                        "date": date
+                    }
+        except Error as e:
+            print(e)
 
-
+        return render_template("ConfirmationPage.html", info=resInfo)
 
 @views.route('/NewCustomerForm', methods=["GET", "POST"])
 def newCustomer():
@@ -88,9 +130,6 @@ def newCustomer():
         except Error as e:
             print(e)
     return render_template("NewCustomerForm.html")
-
-
-
 
 
 
