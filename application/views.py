@@ -159,3 +159,8 @@ def confirmationPage():
 @views.route('/ManageReservation', methods=["GET","POST"])
 def manageReservation():
     return render_template("")
+
+@views.route('/SearchReservation', methods=["GET","POST"])
+@login_required
+def searchReservation():
+    return render_template("SearchReservation.html")
