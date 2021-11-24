@@ -49,7 +49,7 @@ def newReservation():
                     host=host,
                     user=user,
                     password=password,
-                    database=database
+                    database=database,
             ) as connection:
                 print(connection)
 
@@ -160,6 +160,3 @@ def confirmationPage():
 @views.route('/ManageReservation', methods=["GET","POST"])
 def manageReservation():
     return render_template("")
-
-
-
