@@ -166,14 +166,14 @@
                 <a class = "active "href="{{ url_for('views.index') }}">
                     Home
                 </a>
-                {% if current_user.is_authenticated %}
-                <a href="{{ url_for('auth.logout') }}" >
-                    Logout
-                </a>
-                {% endif %}
-                {% if not current_user.is_authenticated %}
-                <a href="/emp_login" class="w3-bar-item w3-button">Employee Login</a>
-                {% endif %}
+<!--                {% if current_user.is_authenticated %}-->
+<!--&lt;!&ndash;                <a href="{{ url_for('auth.logout') }}" >&ndash;&gt;-->
+<!--&lt;!&ndash;                    Logout&ndash;&gt;-->
+<!--&lt;!&ndash;                </a>&ndash;&gt;-->
+<!--                {% endif %}-->
+<!--                {% if not current_user.is_authenticated %}-->
+<!--                <a href="/emp_login" class="w3-bar-item w3-button">Employee Login</a>-->
+<!--                {% endif %}-->
             </div>
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
@@ -183,8 +183,8 @@
                 {% endif %}
             {% endwith %}
 
-        <form action="{{ url_for("views.searchReservation")}}" method="post">
-            <h3>Search Reservations By First Name and Date</h3>
+        <form action={{url_for("views.searchReservation")}} method="post">
+            <h3>Search Reservation</h3>
             <div class="employeeSearch">
                 <input class="fname" type="text" name="fname" placeholder="First name" maxlength = "15" required/>
                 <input class="fname" type="text" name="lname" placeholder="Last name" maxlength = "15" required/>
