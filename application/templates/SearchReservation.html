@@ -161,7 +161,7 @@
 </head>
 <body>
     <div class="main-block">
-        <h1>Package Search</h1>
+        <h1>Reservation Research</h1>
             <div class="topnav">
                 <a class = "active "href="{{ url_for('views.index') }}">
                     Home
@@ -175,43 +175,22 @@
                 <a href="/emp_login" class="w3-bar-item w3-button">Employee Login</a>
                 {% endif %}
             </div>
-        {% with messages = get_flashed_messages() %}
+            {% with messages = get_flashed_messages() %}
                 {% if messages %}
                     <div class="notification is-danger">
                         {{ messages[0] }}
                     </div>
                 {% endif %}
             {% endwith %}
-        <form action={{url_for("views.searchReservation")}} method="post">
-            <h3>Search Active Packages By Branch</h3>
 
-            <div class="branchSearch">
-                <select name="bid">
-                    <option value="number" disabled selected>Branch ID</option>
-                    <option value="1">Houston</option>
-                    <option value="2">Dallas</option>
-                    <option value="3">Austin</option>
-                    <option value="4">San Antonio</option>
-                    <option value="5">El Paso</option>
-                </select>
-                <button name="branchSearch" href="/" class="button">Search</button>
-            </div>
-            <h3>Search Active Packages By Employee</h3>
+        <form action="{{ url_for("views.searchReservation")}}" method="post">
+            <h3>Search Reservations By First Name and Date</h3>
             <div class="employeeSearch">
-                <input class="empID" type="text" name="eid" placeholder="Employee ID" maxlength="10" minlength="1"/>
-                <button name="empSearch" href="/" class="button">Search</button>
+                <input class="fname" type="text" name="fname" placeholder="First name" maxlength = "15" required/>
+                <input class="fname" type="text" name="lname" placeholder="Last name" maxlength = "15" required/>
+                <input type="date" id="date" name="date" placeholder="Booking Date" maxlength="10" minlength="1" min="2020-12-01" required/>
             </div>
-            <h3>Search Package By ID</h3>
-            <div class="packageSearch">
-                <input class="pkgID" type="text" name="pid" placeholder="Package ID" maxlength="10" />
-                <button name="pkgSearch" href="/" class="button">Search</button>
-            </div>
-            <h3>Search Package By Customer ID</h3>
-            <!-- make sure to check both sender and reciever -->
-            <div class="custSearch">
-                <input class="custID" type="text" name="cid" placeholder="Customer ID" maxlength="10" />
-                <button name="custSearch" href="/" class="button">Search</button>
-            </div>
+            <button href="/" class="button">Submit</button>
         </form>
     </div>
 </body>
