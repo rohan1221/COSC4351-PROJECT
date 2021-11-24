@@ -49,7 +49,7 @@ def newReservation():
                     host=host,
                     user=user,
                     password=password,
-                    database=database,
+                    database=database
             ) as connection:
                 print(connection)
 
@@ -120,7 +120,6 @@ def newCustomer():
 
                 # ADD SEQUEL SHIT
                 insert_customer = "" #do dis
-                query = "" #do dis
 
                 with connection.cursor(buffered=True) as cursor:
                     #cursor.execute(insert_customer)
