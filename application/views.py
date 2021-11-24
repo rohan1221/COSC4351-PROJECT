@@ -164,3 +164,8 @@ def manageReservation():
 @login_required
 def searchReservation():
     return render_template("SearchReservation.html")
+
+@views.route('/EditCustomer', methods=["GET","POST"])
+@login_required
+def editCustomer():
+    return render_template("EditCustomer.html")
