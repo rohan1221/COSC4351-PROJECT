@@ -41,8 +41,8 @@ def newReservation():
         email = request.form.get("email")
         phNum = request.form.get("phoneNum")
         address = request.form.get("address")
-        partySz = request.form.get("party_size")
-        date = request.form.get("booking_date")
+        # partySz = request.form.get("party_size")
+        # date = request.form.get("booking_date")
 
         try:
             with connect(
@@ -53,41 +53,42 @@ def newReservation():
             ) as connection:
                 print(connection)
 
-                insert_customer = "INSERT INTO Users (first_name, last_name, email, phone_no, address)" \
-                                 "VALUES" \
-                                 "('"+ fname + "','"+ lname +"','"+ email +"','"+ phNum +"','"+ address +"')"
+                insert_customer = "INSERT INTO Users " \
+                                  "(first_name, last_name, email, phone_no, address) " \
+                                  "VALUES " \
+                                  "('"+ fname +"', '"+ lname +"', '"+ email +"', '"+ phNum +"', '"+ address +"');"
 
-                insert_bookings = "INSERT INTO Bookings(firstName, lastName, booking_date, num_guest)" \
-                                  "VALUES" \
-                                  "('"+ fname +"','"+ lname +"', '"+ date +"', '"+ partySz +"')"
+                # insert_customer = "INSERT INTO Users (first_name, last_name, email, phone_no, address) VALUES ('"+ fname + "','"+ lname +"','"+ email +"','"+ phNum +"','"+ address +"');"
+                # insert_bookings = "INSERT INTO Bookings(firstName, lastName, booking_date, num_guest) VALUES ('"+ fname +"','"+ lname +"', '"+ date +"', '"+ partySz +"');"
 
                 with connection.cursor(buffered=True) as cursor:
                     cursor.execute(insert_customer)
-                    cursor.execute(insert_bookings)
+                    # cursor.execute(insert_bookings)
                     connection.commit()
 
-                    getResID = "SELECT Bookings.booking_ID FROM Bookings "\
-                               "WHERE booking_date = '"+ date +"' AND num_guest= '"+ partySz +"' AND lastName = "+ lname + ";"
+                    # getResID = "SELECT Bookings.booking_ID FROM Bookings "\
+                    #            "WHERE booking_date = '"+ date +"' AND num_guest= '"+ partySz +"' AND lastName = "+ lname + ";"
+                    #
+                    # resIDresults = cursor.fetchone()
+                    # cursor.execute(getResID)
 
-                    resIDresults = cursor.fetchone()
-                    cursor.execute(getResID)
-
-                    resInfo = {
-                        "booking_ID": resIDresults[0],
-                        "fname": fname,
-                        "email": email,
-                        "phNum": phNum,
-                        "partySz": partySz,
-                        "date": date
-                    }
+                    # resInfo = {
+                    #     "booking_ID": "resIDresults[0]",
+                    #     "fname": fname,
+                    #     "email": email,
+                    #     "phNum": phNum,
+                    #     "partySz": partySz,
+                    #     "date": date
+                    # }
                     print("Getting booking ID")
-                    print(resIDresults)
+                    # print(resIDresults)
                     print("successfully inserted data into DB")
 
         except Error as e:
             print(e)
 
-        return render_template("ConfirmationPage.html", info=resInfo)
+        # return render_template("ConfirmationPage.html", info=resInfo)
+        return render_template("SUCCESS.html")
     return render_template("NewReservation.html")
 
 @views.route('/NewCustomerForm', methods=["GET", "POST"])
