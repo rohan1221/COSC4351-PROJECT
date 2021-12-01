@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `group_8` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `group_8`;
 -- MySQL dump 10.13  Distrib 8.0.16, for macos10.14 (x86_64)
 --
 -- Host: localhost    Database: group_8
@@ -87,6 +89,7 @@ CREATE TABLE `Tables` (
 
 LOCK TABLES `Tables` WRITE;
 /*!40000 ALTER TABLE `Tables` DISABLE KEYS */;
+INSERT INTO `Tables` VALUES (1,2,'empty');
 /*!40000 ALTER TABLE `Tables` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,7 +101,7 @@ DROP TABLE IF EXISTS `Users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `Users` (
-  `user_ID` int(11) unsigned zerofill NOT NULL,
+  `user_ID` int(11) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `first_name` varchar(45) DEFAULT NULL,
   `last_name` varchar(45) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
@@ -106,7 +109,7 @@ CREATE TABLE `Users` (
   `address` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`user_ID`),
   UNIQUE KEY `cust_ID_UNIQUE` (`user_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,6 +118,7 @@ CREATE TABLE `Users` (
 
 LOCK TABLES `Users` WRITE;
 /*!40000 ALTER TABLE `Users` DISABLE KEYS */;
+INSERT INTO `Users` VALUES (00000000001,'jon','doe','mail.com',1231231234,'123 abc'),(00000000002,'aaa','bbb','mailing.com',1231231234,'123 placement'),(00000000003,'a','b','m.com',1231231234,'1 placement');
 /*!40000 ALTER TABLE `Users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -135,4 +139,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-22 21:53:29
+-- Dump completed on 2021-11-30 20:02:02
