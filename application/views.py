@@ -41,8 +41,8 @@ def newReservation():
         email = request.form.get("email")
         phNum = request.form.get("phoneNum")
         address = request.form.get("address")
-        # partySz = request.form.get("party_size")
-        # date = request.form.get("booking_date")
+        partySz = request.form.get("party_size")
+        date = request.form.get("booking_date")
 
         try:
             with connect(
