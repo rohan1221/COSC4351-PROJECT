@@ -27,7 +27,7 @@ def home():
                                type=current_user.type.capitalize())
     return render_template("homePage.html")
 
-@views.route('/employee', methods=["GET", "POST"])
+@views.route('/user', methods=["GET", "POST"])
 @login_required
 def loggedIn():
     return render_template("homePage.html", name=current_user.name.capitalize(),
@@ -53,16 +53,18 @@ def newReservation():
             ) as connection:
                 print(connection)
 
-                insert_customer = "INSERT INTO Users " \
+                insert_user = "INSERT INTO Users " \
                                   "(first_name, last_name, email, phone_no, address) " \
                                   "VALUES " \
                                   "('"+ fname +"', '"+ lname +"', '"+ email +"', '"+ phNum +"', '"+ address +"');"
 
-                # insert_customer = "INSERT INTO Users (first_name, last_name, email, phone_no, address) VALUES ('"+ fname + "','"+ lname +"','"+ email +"','"+ phNum +"','"+ address +"');"
-                # insert_bookings = "INSERT INTO Bookings(firstName, lastName, booking_date, num_guest) VALUES ('"+ fname +"','"+ lname +"', '"+ date +"', '"+ partySz +"');"
+                # insert_customer = "INSERT INTO Users (first_name, last_name, email, phone_no, address) VALUES ("test","testt"+ email +"','"+ phNum +"','"+ address +"');"
+                # insert_bookings = "INSERT INTO Bookings(firstName, lastName, booking_date, num_guest) " \
+                #                   "VALUES " \
+                #                   "('"+ fname +"','"+ lname +"', '"+ date +"', '"+ partySz +"');"
 
                 with connection.cursor(buffered=True) as cursor:
-                    cursor.execute(insert_customer)
+                    cursor.execute(insert_user)
                     # cursor.execute(insert_bookings)
                     connection.commit()
 
@@ -83,8 +85,8 @@ def newReservation():
                     print("Getting booking ID")
                     # print(resIDresults)
                     print("successfully inserted data into DB")
-
         except Error as e:
+            print('in error statement')
             print(e)
 
         # return render_template("ConfirmationPage.html", info=resInfo)
